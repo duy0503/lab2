@@ -12,7 +12,7 @@ int main()
   puts("Input value: ");
   scanf("%d", &input_value);      //get user's input
 
-  //for loop to keep user input values into the array, loop will exit when input value is a negative number
+  //while loop to keep user input values into the array, loop will exit when input value is a negative number
   while(input_value >= 0){
     ++number_of_people;
     score[number_of_people - 1] = input_value;
