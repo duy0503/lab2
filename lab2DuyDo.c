@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 //function to calculate the average score of above average
-float average(int score[100], int number_people);
+float average(int *score, int number_people);
 
 int main()
 {
-  int score[100];                 //create an array to hold 100 values
+  int *score;                 //create a pointer
+  score = malloc(10000*sizeof(int));  //allocate memory for an  array to hold 10000 values
   int number_of_people = 0;           //variable to hold the total number of people
   int input_value = 0;            //variable to hold user's input value
   float above_average_score = 0.0;  //variable to hold value of the average of above average score
@@ -22,11 +24,12 @@ int main()
   //call function average, the return value is assigned to above_average_score
   above_average_score = average(score, number_of_people);
   printf("The average score of above average is %.6f\n", above_average_score);
+  free(score);     //dealocate the memory of the array
   return 0;
 }
 
 //implementing function average
-float average(int score[100], int number_people)
+float average(int *score, int number_people)
 {
   float sum = 0.0;
   //calculate the sum of all values
